@@ -10,9 +10,9 @@ services:
     volumes:
       - ./auth-microservice:/opt/app
     networks:
-      - BTD-dev
+      - btd-local
     ports: 
       - 3001:3000
 networks:
-  BTD-dev:
+  btd-local:
     external: true
