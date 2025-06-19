@@ -1,4 +1,0 @@
-#!/bin/bash sh
-
-message="$(cat $1)"
-npm run hooks:commit-msg "$message"

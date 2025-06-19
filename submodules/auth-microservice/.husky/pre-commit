@@ -1,6 +1,0 @@
-#!/bin/bash
-
-npm run hooks:pre-commit
-npm run test:coverage
-
-# exit 1

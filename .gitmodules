@@ -1,6 +1,6 @@
-[submodule "auth-microservice"]
-	path = ./submodules/auth-microservice
-	url = https://github.com/jimmybombimmy/auth-microservice
-[submodule "postgres-db-microservice"]
-	path = ./submodules/postgres-db-microservice
+[submodule "submodules/postgres-db-microservice"]
+	path = submodules/postgres-db-microservice
 	url = https://github.com/jimmybombimmy/postgres-db-microservice
+[submodule "submodules/auth-microservice"]
+	path = submodules/auth-microservice
+	url = https://github.com/jimmybombimmy/auth-microservice
