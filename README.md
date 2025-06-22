@@ -1,13 +1,30 @@
+# BTD-core
 The core repo for hosting Bill Tracker Deluxe microservices (name subject to change)
 
-### 2. Ensure that docker network is created
+## Setup Instructions
 
-Run the following command to set up your docker network, so that it can be run with and connect to other microservices.
+### 1. Configure Environment Variables
 
-```bash
-docker network create btd-local
+Create a `.emv` file in the project root using `env.example` for reference
+
+```env
+HOST=localhost
+NODE_ENV=dev
+
+# For use in auth
+SESSION_SECRET=secret
+
+PG_USER=user
+PG_PASSWORD=pass
+# PG_DATABASE will be set in each individual microservice that uses a db
 ```
 
-In the `docker-compose.yml file`, this is setup to use the network of **btd-local**, as that relates to the project I'm using this for currently.
+This forms as an entry point for any local db setup.
 
-If you fork this repo and use it as a means to setup docker with another project, ensure that you change this network name and in any other linked repos.
+### 2. Run docker-compose
+
+Run the following command to set up your microservices in containers, while creating the **btd-local** network.
+
+```bash
+docker-compose up -d --build
+```

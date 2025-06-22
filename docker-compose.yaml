@@ -1,18 +1,39 @@
 version: "3.8"
 services:
+  postgres:
+    build: ./submodules/postgres-db-microservice
+    stdin_open: true
+    tty: true
+    container_name: postgres
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - ./submodules/postgres-db-microservice:/opt/app
+      - ./submodules/postgres-db-microservice/setup.sql:/docker-entrypoint-initdb.d/setup.sql
+    networks:
+      - btd-local
+    ports: 
+      - 5432:5432
   auth:
-    build: ./auth-microservice
+    depends_on: 
+      - postgres
+    build: ./submodules/auth-microservice
     stdin_open: true
     tty: true
     container_name: auth
     env_file:
       - ./.env
+    environment:
+      - PG_HOST=postgres
+      - PG_DATABASE=test_users
+      - PORT=3000
     volumes:
-      - ./auth-microservice:/opt/app
+      - ./submodules/auth-microservice:/opt/app
     networks:
       - btd-local
     ports: 
       - 3001:3000
 networks:
   btd-local:
-    external: true
+    name: btd-local
