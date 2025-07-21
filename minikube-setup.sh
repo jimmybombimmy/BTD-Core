@@ -39,7 +39,3 @@ docker-compose down # required to leave room for ports to be used in minikube
 # Exec into your pods
 # exec into pod - $ kubectl exec -it <pod> -- sh
 # exec into psql - $ kubectl exec -it <pod> -- psql -h localhost -U user123 --password -p 5432 test_users
-
-# To do:
-# - Then read this and change things accordingly: https://medium.com/@subhampradhan966/deployment-of-a-three-tier-application-on-kubernetes-5fad942c6147 
-
