@@ -26,6 +26,7 @@ if [[ $1 != "-m" ]]; then
 fi
 
 echo "${bold}Committing and pushing all changes to \"$branch\" branch in $dir submodule \n${normal}"
+sleep 1 
 
 git add .
 git commit $1 "$2"
@@ -59,5 +60,5 @@ if [[ "$PWD" =~ BTD-core$ ]]; then
 
       cd ..
     done
-    # echo "\n${bold}${green}Installed and updated all submodules${normal}\n"
+  cd .. 
 fi
