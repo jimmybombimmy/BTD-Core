@@ -14,9 +14,9 @@ NODE_ENV=dev
 # For use in auth
 SESSION_SECRET=secret
 
-PG_USER=user
-PG_PASSWORD=pass
-# PG_DATABASE will be set in each individual microservice that uses a db
+POSTGRES_USER=user123
+POSTGRES_PASSWORD=pass
+# POSTGRES_DATABASE will be set in each individual microservice that uses a db
 ```
 
 This forms as an entry point for any local db setup.
