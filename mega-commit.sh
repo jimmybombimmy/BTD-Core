@@ -55,7 +55,7 @@ if [[ "$PWD" =~ BTD-core$ ]]; then
 
 
       git add .
-      git commit $1 \"$2\"
+      git commit $1 "$2"
       git push origin $branch
 
       cd ..
