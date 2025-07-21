@@ -8,6 +8,11 @@ services:
     restart: always
     env_file:
       - .env
+    environment:
+      - POSTGRES_USER=user123
+      - POSTGRES_HOST=postgres
+      - POSTGRES_DATABASE=test_users
+      - PORT=5432
     volumes:
       - ./submodules/postgres-db-microservice:/opt/app
       - ./submodules/postgres-db-microservice/setup.sql:/docker-entrypoint-initdb.d/setup.sql
@@ -25,15 +30,16 @@ services:
     env_file:
       - ./.env
     environment:
-      - PG_HOST=postgres
-      - PG_DATABASE=test_users
+      - POSTGRES_USER=user123
+      - POSTGRES_HOST=postgres
+      - POSTGRES_DATABASE=test_users
       - PORT=3000
     volumes:
       - ./submodules/auth-microservice:/opt/app
     networks:
       - btd-local
     ports: 
-      - 3001:3000
+      - 3000:3000
 networks:
   btd-local:
     name: btd-local
